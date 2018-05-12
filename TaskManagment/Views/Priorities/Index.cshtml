@@ -1,0 +1,36 @@
+﻿@model IEnumerable<TaskManagment.Models.Priority>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<link href="~/Content/table.css" rel="stylesheet" />
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Priority")
+        </th>
+        <th>
+            @Html.DisplayName("Settings")
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PriorityText)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.PriorityID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.PriorityID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.PriorityID })
+            </td>
+        </tr>
+    }
+
+</table>
